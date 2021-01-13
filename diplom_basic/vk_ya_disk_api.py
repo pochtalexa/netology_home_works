@@ -119,10 +119,10 @@ def save_photos_to_hdd(df_user_photos):
     return True
 
 
-def ya_disk_upload(df_user_photos):
+def ya_disk_upload(df_user_photos, token):
     header = {
         'Content-Type': 'application/json',
-        'Authorization': f'OAuth {YA_TOKEN}'
+        'Authorization': f'OAuth {token}'
     }
 
     # создаем папку
@@ -191,4 +191,4 @@ input_params = get_input_params()
 user_photos = get_user_photos(input_params[0])
 df_user_photos = get_photos_for_download(user_photos)
 save_photos_to_hdd(df_user_photos)
-ya_disk_upload_log = ya_disk_upload(df_user_photos)
+ya_disk_upload_log = ya_disk_upload(df_user_photos, input_params[1])
