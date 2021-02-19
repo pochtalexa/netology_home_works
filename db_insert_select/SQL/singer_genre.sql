@@ -1,0 +1,9 @@
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (1, 1);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (1, 2);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (2, 4);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (3, 3);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (4, 6);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (5, 6);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (6, 5);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (7, 3);
+INSERT INTO singer_genre (id_singer, id_genre) VALUES (8, 4);

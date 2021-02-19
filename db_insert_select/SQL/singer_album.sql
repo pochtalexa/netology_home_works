@@ -1,0 +1,9 @@
+INSERT INTO singer_album (id_singer, id_album) VALUES (1, 1);
+INSERT INTO singer_album (id_singer, id_album) VALUES (2, 2);
+INSERT INTO singer_album (id_singer, id_album) VALUES (3, 3);
+INSERT INTO singer_album (id_singer, id_album) VALUES (3, 8);
+INSERT INTO singer_album (id_singer, id_album) VALUES (4, 4);
+INSERT INTO singer_album (id_singer, id_album) VALUES (5, 4);
+INSERT INTO singer_album (id_singer, id_album) VALUES (6, 5);
+INSERT INTO singer_album (id_singer, id_album) VALUES (7, 6);
+INSERT INTO singer_album (id_singer, id_album) VALUES (8, 7);
