@@ -1,4 +1,4 @@
-from app import (check_document_existance, get_doc_owner_name, get_all_doc_owners_names,
+from netology.unit_test_s.app import (check_document_existance, get_doc_owner_name, get_all_doc_owners_names,
                                       show_all_docs_info, get_doc_shelf, add_new_doc, delete_doc, move_doc_to_shelf,
                                       add_new_shelf
                                       )

@@ -1,0 +1,2 @@
+class ValueStorage:
+    driver = None
