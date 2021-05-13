@@ -1,0 +1,159 @@
+<!DOCTYPE html>{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Инфляция в России</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      td.less_0 {
+        background-color: #008000;
+      }
+      td.between_0_1 {
+        background-color: #ffffff;
+      }
+      td.between_1_2 {
+        background-color: #ffcccc;
+      }
+      td.between_2_5 {
+        background-color: #ff8080;
+      }
+      td.more_5 {
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% block content %}
+      <div class="row">
+        <h1 class="col s12">Инфляция в России</h1>
+        <div class="col s12 m8">
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                {% for col in columns %}
+                  <th>{{ col }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+              <tr>
+                <td>{{ row.0 }}</td>
+
+                <td class="
+                  {% if row.1 < 0  %} less_0 {%  endif %}
+                  {% if row.1 >= 0 and row.1 < 1 %} between_0_1 {%  endif %}
+                  {% if row.1 >= 1 and row.1 < 2  %} between_1_2 {%  endif %}
+                  {% if row.1 >= 2 and row.1 < 5  %} between_2_5 {%  endif %}
+                  {% if row.1 >= 5 %} more_5 {%  endif %}
+                ">{{ row.1 }}</td>
+                
+                <td class="
+                  {% if row.2 < 0  %} less_0 {%  endif %}
+                  {% if row.2 >= 0 and row.2 < 1 %} between_0_1 {%  endif %}
+                  {% if row.2 >= 1 and row.2 < 2  %} between_1_2 {%  endif %}
+                  {% if row.2 >= 2 and row.2 < 5  %} between_2_5 {%  endif %}
+                  {% if row.2 >= 5 %} more_5 {%  endif %}
+                ">{{ row.2 }}</td>
+                
+                <td class="
+                  {% if row.3 < 0  %} less_0 {%  endif %}
+                  {% if row.3 >= 0 and row.3 < 1 %} between_0_1 {%  endif %}
+                  {% if row.3 >= 1 and row.3 < 2  %} between_1_2 {%  endif %}
+                  {% if row.3 >= 2 and row.3 < 5  %} between_2_5 {%  endif %}
+                  {% if row.3 >= 5 %} more_5 {%  endif %}
+                ">{{ row.3 }}</td>
+                
+                <td class="
+                  {% if row.4 < 0  %} less_0 {%  endif %}
+                  {% if row.4 >= 0 and row.4 < 1 %} between_0_1 {%  endif %}
+                  {% if row.4 >= 1 and row.4 < 2  %} between_1_2 {%  endif %}
+                  {% if row.4 >= 2 and row.4 < 5  %} between_2_5 {%  endif %}
+                  {% if row.4 >= 5 %} more_5 {%  endif %}
+                ">{{ row.4 }}</td>
+                
+                <td class="
+                  {% if row.5 < 0  %} less_0 {%  endif %}
+                  {% if row.5 >= 0 and row.5 < 1 %} between_0_1 {%  endif %}
+                  {% if row.5 >= 1 and row.5 < 2  %} between_1_2 {%  endif %}
+                  {% if row.5 >= 2 and row.5 < 5  %} between_2_5 {%  endif %}
+                  {% if row.5 >= 5 %} more_5 {%  endif %}
+                ">{{ row.5 }}</td>
+                
+                <td class="
+                  {% if row.6 < 0  %} less_0 {%  endif %}
+                  {% if row.6 >= 0 and row.6 < 1 %} between_0_1 {%  endif %}
+                  {% if row.6 >= 1 and row.6 < 2  %} between_1_2 {%  endif %}
+                  {% if row.6 >= 2 and row.6 < 5  %} between_2_5 {%  endif %}
+                  {% if row.6 >= 5 %} more_5 {%  endif %}
+                ">{{ row.6 }}</td>
+                
+                <td class="
+                  {% if row.7 < 0  %} less_0 {%  endif %}
+                  {% if row.7 >= 0 and row.7 < 1 %} between_0_1 {%  endif %}
+                  {% if row.7 >= 1 and row.7 < 2  %} between_1_2 {%  endif %}
+                  {% if row.7 >= 2 and row.7 < 5  %} between_2_5 {%  endif %}
+                  {% if row.7 >= 5 %} more_5 {%  endif %}
+                ">{{ row.7 }}</td>
+                
+                <td class="
+                  {% if row.8 < 0  %} less_0 {%  endif %}
+                  {% if row.8 >= 0 and row.8 < 1 %} between_0_1 {%  endif %}
+                  {% if row.8 >= 1 and row.8 < 2  %} between_1_2 {%  endif %}
+                  {% if row.8 >= 2 and row.8 < 5  %} between_2_5 {%  endif %}
+                  {% if row.8 >= 5 %} more_5 {%  endif %}
+                ">{{ row.8 }}</td>
+                
+                <td class="
+                  {% if row.9 < 0  %} less_0 {%  endif %}
+                  {% if row.9 >= 0 and row.9 < 1 %} between_0_1 {%  endif %}
+                  {% if row.9 >= 1 and row.9 < 2  %} between_1_2 {%  endif %}
+                  {% if row.9 >= 2 and row.9 < 5  %} between_2_5 {%  endif %}
+                  {% if row.9 >= 5 %} more_5 {%  endif %}
+                ">{{ row.9 }}</td>
+                
+                <td class="
+                  {% if row.10 < 0  %} less_0 {%  endif %}
+                  {% if row.10 >= 0 and row.10 < 1 %} between_0_1 {%  endif %}
+                  {% if row.10 >= 1 and row.10 < 2  %} between_1_2 {%  endif %}
+                  {% if row.10 >= 2 and row.10 < 5  %} between_2_5 {%  endif %}
+                  {% if row.10 >= 5 %} more_5 {%  endif %}
+                ">{{ row.10 }}</td>
+                
+                <td class="
+                  {% if row.11 < 0  %} less_0 {%  endif %}
+                  {% if row.11 >= 0 and row.11 < 1 %} between_0_1 {%  endif %}
+                  {% if row.11 >= 1 and row.11 < 2  %} between_1_2 {%  endif %}
+                  {% if row.11 >= 2 and row.11 < 5  %} between_2_5 {%  endif %}
+                  {% if row.11 >= 5 %} more_5 {%  endif %}
+                ">{{ row.11 }}</td>
+                
+                <td class="
+                  {% if row.12 < 0  %} less_0 {%  endif %}
+                  {% if row.12 >= 0 and row.12 < 1 %} between_0_1 {%  endif %}
+                  {% if row.12 >= 1 and row.12 < 2  %} between_1_2 {%  endif %}
+                  {% if row.12 >= 2 and row.12 < 5  %} between_2_5 {%  endif %}
+                  {% if row.12 >= 5 %} more_5 {%  endif %}
+                ">{{ row.12 }}</td>
+
+                <td style="background-color: #808080">{{ row.13 }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        
+
+
+        </div>
+      </div>
+    {% endblock %}
+
+  </body>
+</html>
