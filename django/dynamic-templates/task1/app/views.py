@@ -11,8 +11,10 @@ def inflation_view(request):
     df = df.fillna('-')
 
     context = {'columns': df.columns,
+               'col_numbers': list(range(1, len(df.columns))),
                'index': df.index,
-               'data': df.values.tolist()
+               # 'data': df.values.tolist()
+               'data': df.to_dict('records')
     }
 
     return render(request, template_name, context)

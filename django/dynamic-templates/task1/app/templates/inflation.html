@@ -1,3 +1,5 @@
+{% load set_color  %}
+
 <!DOCTYPE html>{% load static %}
 <html>
   <head>
@@ -26,6 +28,9 @@
       td.more_5 {
         background-color: #ff0000;
       }
+      td.summ {
+        background-color: #919191;
+      }
     </style>
   </head>
 
@@ -45,112 +50,17 @@
             <tbody>
             {% for row in data %}
               <tr>
-                <td>{{ row.0 }}</td>
-
-                <td class="
-                  {% if row.1 < 0  %} less_0 {%  endif %}
-                  {% if row.1 >= 0 and row.1 < 1 %} between_0_1 {%  endif %}
-                  {% if row.1 >= 1 and row.1 < 2  %} between_1_2 {%  endif %}
-                  {% if row.1 >= 2 and row.1 < 5  %} between_2_5 {%  endif %}
-                  {% if row.1 >= 5 %} more_5 {%  endif %}
-                ">{{ row.1 }}</td>
-                
-                <td class="
-                  {% if row.2 < 0  %} less_0 {%  endif %}
-                  {% if row.2 >= 0 and row.2 < 1 %} between_0_1 {%  endif %}
-                  {% if row.2 >= 1 and row.2 < 2  %} between_1_2 {%  endif %}
-                  {% if row.2 >= 2 and row.2 < 5  %} between_2_5 {%  endif %}
-                  {% if row.2 >= 5 %} more_5 {%  endif %}
-                ">{{ row.2 }}</td>
-                
-                <td class="
-                  {% if row.3 < 0  %} less_0 {%  endif %}
-                  {% if row.3 >= 0 and row.3 < 1 %} between_0_1 {%  endif %}
-                  {% if row.3 >= 1 and row.3 < 2  %} between_1_2 {%  endif %}
-                  {% if row.3 >= 2 and row.3 < 5  %} between_2_5 {%  endif %}
-                  {% if row.3 >= 5 %} more_5 {%  endif %}
-                ">{{ row.3 }}</td>
-                
-                <td class="
-                  {% if row.4 < 0  %} less_0 {%  endif %}
-                  {% if row.4 >= 0 and row.4 < 1 %} between_0_1 {%  endif %}
-                  {% if row.4 >= 1 and row.4 < 2  %} between_1_2 {%  endif %}
-                  {% if row.4 >= 2 and row.4 < 5  %} between_2_5 {%  endif %}
-                  {% if row.4 >= 5 %} more_5 {%  endif %}
-                ">{{ row.4 }}</td>
-                
-                <td class="
-                  {% if row.5 < 0  %} less_0 {%  endif %}
-                  {% if row.5 >= 0 and row.5 < 1 %} between_0_1 {%  endif %}
-                  {% if row.5 >= 1 and row.5 < 2  %} between_1_2 {%  endif %}
-                  {% if row.5 >= 2 and row.5 < 5  %} between_2_5 {%  endif %}
-                  {% if row.5 >= 5 %} more_5 {%  endif %}
-                ">{{ row.5 }}</td>
-                
-                <td class="
-                  {% if row.6 < 0  %} less_0 {%  endif %}
-                  {% if row.6 >= 0 and row.6 < 1 %} between_0_1 {%  endif %}
-                  {% if row.6 >= 1 and row.6 < 2  %} between_1_2 {%  endif %}
-                  {% if row.6 >= 2 and row.6 < 5  %} between_2_5 {%  endif %}
-                  {% if row.6 >= 5 %} more_5 {%  endif %}
-                ">{{ row.6 }}</td>
-                
-                <td class="
-                  {% if row.7 < 0  %} less_0 {%  endif %}
-                  {% if row.7 >= 0 and row.7 < 1 %} between_0_1 {%  endif %}
-                  {% if row.7 >= 1 and row.7 < 2  %} between_1_2 {%  endif %}
-                  {% if row.7 >= 2 and row.7 < 5  %} between_2_5 {%  endif %}
-                  {% if row.7 >= 5 %} more_5 {%  endif %}
-                ">{{ row.7 }}</td>
-                
-                <td class="
-                  {% if row.8 < 0  %} less_0 {%  endif %}
-                  {% if row.8 >= 0 and row.8 < 1 %} between_0_1 {%  endif %}
-                  {% if row.8 >= 1 and row.8 < 2  %} between_1_2 {%  endif %}
-                  {% if row.8 >= 2 and row.8 < 5  %} between_2_5 {%  endif %}
-                  {% if row.8 >= 5 %} more_5 {%  endif %}
-                ">{{ row.8 }}</td>
-                
-                <td class="
-                  {% if row.9 < 0  %} less_0 {%  endif %}
-                  {% if row.9 >= 0 and row.9 < 1 %} between_0_1 {%  endif %}
-                  {% if row.9 >= 1 and row.9 < 2  %} between_1_2 {%  endif %}
-                  {% if row.9 >= 2 and row.9 < 5  %} between_2_5 {%  endif %}
-                  {% if row.9 >= 5 %} more_5 {%  endif %}
-                ">{{ row.9 }}</td>
-                
-                <td class="
-                  {% if row.10 < 0  %} less_0 {%  endif %}
-                  {% if row.10 >= 0 and row.10 < 1 %} between_0_1 {%  endif %}
-                  {% if row.10 >= 1 and row.10 < 2  %} between_1_2 {%  endif %}
-                  {% if row.10 >= 2 and row.10 < 5  %} between_2_5 {%  endif %}
-                  {% if row.10 >= 5 %} more_5 {%  endif %}
-                ">{{ row.10 }}</td>
-                
-                <td class="
-                  {% if row.11 < 0  %} less_0 {%  endif %}
-                  {% if row.11 >= 0 and row.11 < 1 %} between_0_1 {%  endif %}
-                  {% if row.11 >= 1 and row.11 < 2  %} between_1_2 {%  endif %}
-                  {% if row.11 >= 2 and row.11 < 5  %} between_2_5 {%  endif %}
-                  {% if row.11 >= 5 %} more_5 {%  endif %}
-                ">{{ row.11 }}</td>
-                
-                <td class="
-                  {% if row.12 < 0  %} less_0 {%  endif %}
-                  {% if row.12 >= 0 and row.12 < 1 %} between_0_1 {%  endif %}
-                  {% if row.12 >= 1 and row.12 < 2  %} between_1_2 {%  endif %}
-                  {% if row.12 >= 2 and row.12 < 5  %} between_2_5 {%  endif %}
-                  {% if row.12 >= 5 %} more_5 {%  endif %}
-                ">{{ row.12 }}</td>
-
-                <td style="background-color: #808080">{{ row.13 }}</td>
+                {% for cell_key, cell_val in row.items %}
+                  {% if cell_key == "Год"  %} <td>{{ cell_val }}</td> {%  endif %}
+                  {% if cell_key == "Суммарная"  %} <td class="summ">{{ cell_val }}</td> {%  endif %}
+                  {% if cell_key != "Суммарная" and cell_key != "Год"  %}
+                    <td class={{ cell_val|my_set_color }}>{{ cell_val }}</td>
+                  {%  endif %}
+                {% endfor %}
               </tr>
             {% endfor %}
             </tbody>
           </table>
-        
-
-
         </div>
       </div>
     {% endblock %}
