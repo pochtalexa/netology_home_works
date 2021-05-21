@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1><a href="/catalog">Каталог</a></h1>
+        </div>
+
+        <div class="sort-block">
+            {# Здесь должен быть раздел с сортировкой #}
+        </div>
+
+        <div class="content">
+            {# Здесь должен отображаться каталог с телефонами #}
+            <table class="u-full-width">
+            <thead>
+              <tr>
+                  <th> <a href="{{ sort_links.name }}">name</a> </th>
+                  <th> image </th>
+                  <th> <a href="{{ sort_links.price }}">price</a> </th>
+                  <th> <a href="{{ sort_links.release_date }}">release_date</a> </th>
+                  <th> <a href="{{ sort_links.lte_exists }}">lte_exists</a> </th>
+                  <th> <a href="{{ sort_links.slug }}">slug</a> </th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+              <tr>
+                  <td> {{row.name}} </td>
+                  <td><img src="{{ row.image }}" ></td>
+                  <td> {{row.price}} </td>
+                  <td> {{row.release_date}} </td>
+                  <td> {{row.lte_exists}} </td>
+                  <td> <a href="{{ base_link }}{{ row.slug }}"> {{ row.slug }} </a> </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Телефон{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Телефон</h1>
+        </div>
+        <div class="content">
+            <table class="u-full-width">
+            <thead>
+              <tr>
+                  <th> name </th>
+                  <th> image </th>
+                  <th> price </th>
+                  <th> release_date </th>
+                  <th> lte_exists </th>
+                  <th> slug </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td> {{data.name}} </td>
+                  <td> <img src="{{ data.image }}" > </td>
+                  <td> {{data.price}} </td>
+                  <td> {{data.release_date}} </td>
+                  <td> {{data.lte_exists}} </td>
+                  <td> {{ data.slug }} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock %}
