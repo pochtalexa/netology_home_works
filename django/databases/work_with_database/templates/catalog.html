@@ -19,7 +19,12 @@
               <tr>
                   <th> <a href="{{ sort_links.name }}">name</a> </th>
                   <th> image </th>
-                  <th> <a href="{{ sort_links.price }}">price</a> </th>
+                  <th>
+                      price <br>
+                      <a href="{{ sort_links.price_up }}">↑</a>
+
+                      <a href="{{ sort_links.price_down }}">↓</a>
+                  </th>
                   <th> <a href="{{ sort_links.release_date }}">release_date</a> </th>
                   <th> <a href="{{ sort_links.lte_exists }}">lte_exists</a> </th>
                   <th> <a href="{{ sort_links.slug }}">slug</a> </th>
