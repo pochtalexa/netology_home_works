@@ -19,7 +19,6 @@ from advertisements import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-# TODO: подключите `AdvertisementViewSet`
 router.register('advertisement', views.AdvertisementViewSet, basename='advertisement')
 
 
