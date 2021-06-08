@@ -1,10 +1,10 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import ModelViewSet
 from .models import Advertisement
 from .serializers import UserSerializer, AdvertisementSerializer
 from .filters import AdvertisementFilter
-from .permissions import AdvertisementPermission
+from .permissions import IsSelfAdvertisementPermission
 
 
 class AdvertisementViewSet(ModelViewSet):
@@ -18,10 +18,11 @@ class AdvertisementViewSet(ModelViewSet):
 
     def get_permissions(self):
         """Получение прав для действий."""
-        result = []
-        if self.action in ["create", "update", "partial_update", "destroy"]:
-            result.append(IsAuthenticated())
-        if result and self.action == 'destroy':
-            result.append(AdvertisementPermission())
+        if self.action == "create":
+            return [IsAuthenticated()]
+        elif self.action in ["update", "destroy"]:
+            return [IsAuthenticated(), IsSelfAdvertisementPermission()]
+        elif self.action in ['retrieve', 'list']:
+            return [AllowAny()]
 
-        return result
+        return []
