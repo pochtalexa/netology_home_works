@@ -1,0 +1,3 @@
+INSERT INTO public.authtoken_token (key, created, user_id) VALUES ('c31c4e32064417d2039652ce9ab05b02cb5b6c3e', '2021-06-07 19:01:04.533288', 1);
+INSERT INTO public.authtoken_token (key, created, user_id) VALUES ('d6e071cbed026bb84759d88ddf02f0cbe1b55716', '2021-06-07 19:01:08.641754', 2);
+INSERT INTO public.authtoken_token (key, created, user_id) VALUES ('7fd032e76c91f20b565b8470126da46aa7f9ae37', '2021-06-07 19:01:12.485538', 3);
