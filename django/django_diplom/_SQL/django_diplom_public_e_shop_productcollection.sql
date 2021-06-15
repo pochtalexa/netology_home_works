@@ -1,0 +1,4 @@
+INSERT INTO public.e_shop_productcollection (id, title, description, created_at, updated_at) VALUES (1, 'Коллекция товара 1', 'Коллекция товара 1', '2021-06-07 18:19:52.496604', '2021-06-08 15:17:36.586076');
+INSERT INTO public.e_shop_productcollection (id, title, description, created_at, updated_at) VALUES (2, 'Коллекция товара 2', 'Коллекция товара 2', '2021-06-07 18:20:09.599913', '2021-06-08 15:17:40.918308');
+INSERT INTO public.e_shop_productcollection (id, title, description, created_at, updated_at) VALUES (3, 'Коллекция товара 3', 'Коллекция товара 3', '2021-06-07 18:20:37.780169', '2021-06-08 15:17:43.624376');
+INSERT INTO public.e_shop_productcollection (id, title, description, created_at, updated_at) VALUES (4, 'Коллекция товара API', 'Коллекция товара API', '2021-06-08 15:21:30.706134', '2021-06-08 15:21:30.706134');

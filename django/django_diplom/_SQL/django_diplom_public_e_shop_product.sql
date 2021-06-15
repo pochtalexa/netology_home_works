@@ -1,0 +1,4 @@
+INSERT INTO public.e_shop_product (id, title, description, price, created_at, updated_at) VALUES (1, 'Огурец', 'Огурцы', 1, '2021-06-07 18:12:28.400519', '2021-06-07 18:12:28.400519');
+INSERT INTO public.e_shop_product (id, title, description, price, created_at, updated_at) VALUES (2, 'Помидор', 'Помидоры', 2, '2021-06-07 18:12:38.881158', '2021-06-07 18:12:38.881158');
+INSERT INTO public.e_shop_product (id, title, description, price, created_at, updated_at) VALUES (3, 'Апельсин', 'Апельсины', 3, '2021-06-07 18:12:55.512335', '2021-06-07 18:12:55.512335');
+INSERT INTO public.e_shop_product (id, title, description, price, created_at, updated_at) VALUES (4, 'Банан', 'Бананы', 4, '2021-06-08 14:29:34.691328', '2021-06-08 14:29:34.691328');

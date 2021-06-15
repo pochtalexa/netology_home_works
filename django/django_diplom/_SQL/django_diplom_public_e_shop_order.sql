@@ -1,0 +1,3 @@
+INSERT INTO public.e_shop_order (id, status, sum, created_at, updated_at, id_user_id) VALUES (1, 'NEW', 100, '2021-06-07 18:17:54.609608', '2021-06-07 18:17:54.609608', 2);
+INSERT INTO public.e_shop_order (id, status, sum, created_at, updated_at, id_user_id) VALUES (2, 'NEW', 200, '2021-06-07 18:18:04.933296', '2021-06-07 18:18:04.933296', 3);
+INSERT INTO public.e_shop_order (id, status, sum, created_at, updated_at, id_user_id) VALUES (3, 'NEW', 300, '2021-06-08 14:58:24.447742', '2021-06-08 14:58:24.447742', 3);
