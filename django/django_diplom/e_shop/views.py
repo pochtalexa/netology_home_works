@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from .models import Product, ProductReview, Order, ProductCollection
 from .serializers import ProductSerializer, ProductReviewSerializer, OrderSerializer, ProductCollectionSerializer
 from .filters import ProductFilter, ProductReviewFilter, OrderFilter
-from .permissions import IsMoreThanOneReview, IsSelfReview, IsSelfOrder, DenyAny
+from .permissions import IsSelfReviewOrOrder, DenyAny
 
 
 class ProductsViewSet(ModelViewSet):
@@ -43,9 +43,9 @@ class ProductReviewViewSet(ModelViewSet):
 
     def get_permissions(self):
         if self.action == 'create':
-            return [IsAuthenticated(), IsMoreThanOneReview()]
+            return [IsAuthenticated()]
         elif self.action in ['update', 'partial_update', 'destroy']:
-            return [IsSelfReview()]
+            return [IsSelfReviewOrOrder()]
         elif self.action in ['retrieve', 'list']:
             return [AllowAny()]
 
@@ -68,12 +68,12 @@ class OrderViewSet(ModelViewSet):
     filter_class = OrderFilter
 
     def get_permissions(self):
-        if self.action == 'create':
+        if self.action in ['create']:
             return [IsAuthenticated()]
-        elif self.action in ['update', 'partial_update', 'list']:
+        elif self.action in ['list']:
             return [IsAdminUser()]
-        elif self.action in ['retrieve', 'destroy']:
-            return [IsSelfOrder()]
+        elif self.action in ['retrieve', 'destroy', 'update', 'partial_update']:
+            return [IsSelfReviewOrOrder()]
 
         return [DenyAny()]
 

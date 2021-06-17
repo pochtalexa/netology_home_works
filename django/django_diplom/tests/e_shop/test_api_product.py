@@ -1,8 +1,9 @@
 import pytest
 from django.urls import reverse
-from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED, HTTP_204_NO_CONTENT, HTTP_401_UNAUTHORIZED
+from rest_framework.status import (HTTP_200_OK, HTTP_201_CREATED, HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST,
+                                   HTTP_401_UNAUTHORIZED)
 from rest_framework.test import APIClient
-from e_shop.models import Product, ProductReview, Order, ProductCollection
+from e_shop.models import Product
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
@@ -142,11 +143,11 @@ class TestProductsViewSet:
 
         self.client = APIClient()
         self.url = f'{reverse("products-list")}'
-        self.r = self.client.get(self.url, {'title': 'Огурец'}, format='json')
+        self.r = self.client.get(self.url, {'title': 'Банан'}, format='json')
         assert self.r.status_code == HTTP_200_OK
 
         self.r_json = self.r.json()
-        assert self.r_json[0].get('title') == 'Огурец'
+        assert self.r_json[0].get('title') == 'Банан'
 
     @pytest.mark.django_db
     def test_product_destroy_admin(self):

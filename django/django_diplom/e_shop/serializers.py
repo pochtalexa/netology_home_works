@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueTogetherValidator
+
 from e_shop.models import Product, ProductReview, Order, ProductCollection
 
 
@@ -12,11 +14,12 @@ class ProductReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductReview
         fields = '__all__'
-
-    # def validate_mark(self, value):
-    #     if value <= 0 or value >= 6:
-    #         raise serializers.ValidationError("mark must be from 1 to 5")
-    #     return value
+        validators = [
+            UniqueTogetherValidator(
+                queryset=ProductReview.objects.all(),
+                fields=['author', 'product']
+            )
+        ]
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -29,7 +32,3 @@ class ProductCollectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductCollection
         fields = '__all__'
-
-
-
-

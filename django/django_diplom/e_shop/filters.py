@@ -13,10 +13,11 @@ class ProductFilter(filters.FilterSet):
 
 class ProductReviewFilter(filters.FilterSet):
     created = filters.DateFromToRangeFilter(field_name="created_at")
+    product = filters.CharFilter(field_name="product__title", lookup_expr='icontains')
 
     class Meta:
         model = ProductReview
-        fields = ('id_author', 'id_product', 'created')
+        fields = ('author', 'product', 'created')
 
 
 class OrderFilter(filters.FilterSet):
