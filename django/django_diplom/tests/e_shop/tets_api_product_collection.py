@@ -62,7 +62,7 @@ class TestProductCollectionViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
-        self.url = f"{reverse('product_collections-list')}1/"
+        self.url = reverse('product_collections-detail', args=[self.collection.id])
         self.r = self.client.patch(self.url, data=self.collection_payload)
         assert self.r.status_code == HTTP_200_OK
 
@@ -94,7 +94,7 @@ class TestProductCollectionViewSet:
         ])
 
         self.client = APIClient()
-        self.url = f"{reverse('product_collections-list')}1/"
+        self.url = reverse('product_collections-detail', args=[self.collections[0].id])
         self.r = self.client.get(self.url)
         assert self.r.status_code == HTTP_200_OK
 
@@ -107,7 +107,7 @@ class TestProductCollectionViewSet:
         ])
 
         self.client = APIClient()
-        self.url = f"{reverse('product_collections-list')}1/"
+        self.url = reverse('product_collections-detail', args=[self.collections[0].id])
         self.r = self.client.delete(self.url)
         assert self.r.status_code == HTTP_401_UNAUTHORIZED
 
@@ -124,9 +124,6 @@ class TestProductCollectionViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
-        self.url = f"{reverse('product_collections-list')}1/"
+        self.url = reverse('product_collections-detail', args=[self.collections[0].id])
         self.r = self.client.delete(self.url)
         assert self.r.status_code == HTTP_204_NO_CONTENT
-
-
-

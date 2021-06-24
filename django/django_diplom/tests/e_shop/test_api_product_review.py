@@ -106,7 +106,7 @@ class TestProductReviewViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
-        self.url = f"{reverse('product_reviews-list')}{self.id_product_review}/"
+        self.url = reverse('product_reviews-detail', args=[self.id_product_review])
         self.r = self.client.patch(self.url, data=self.review_payload)
         assert self.r.status_code == HTTP_200_OK
 
@@ -138,7 +138,7 @@ class TestProductReviewViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
-        self.url = f"{reverse('product_reviews-list')}{self.id_product_review}/"
+        self.url = reverse('product_reviews-detail', args=[self.id_product_review])
         self.r = self.client.patch(self.url, data=self.review_payload)
         assert self.r.status_code == HTTP_200_OK
 
@@ -199,7 +199,7 @@ class TestProductReviewViewSet:
         ])
 
         self.client = APIClient()
-        self.url = f'{reverse("product_reviews-list")}2/'
+        self.url = reverse('product_reviews-detail', args=[self.product_review[1].id])
         self.r = self.client.get(self.url)
         assert self.r.status_code == HTTP_200_OK
 
@@ -255,7 +255,7 @@ class TestProductReviewViewSet:
         ])
 
         self.client = APIClient()
-        self.url = f'{reverse("product_reviews-list")}1/'
+        self.url = reverse("product_reviews-detail", args=[self.product_review[0].id])
         self.r = self.client.delete(self.url)
         assert self.r.status_code == HTTP_401_UNAUTHORIZED
 
@@ -282,7 +282,7 @@ class TestProductReviewViewSet:
         self.user_token = Token.objects.create(user=self.user_user[0])
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
-        self.url = f'{reverse("product_reviews-list")}1/'
+        self.url = reverse("product_reviews-detail", args=[self.product_review[0].id])
         self.r = self.client.delete(self.url)
         assert self.r.status_code == HTTP_204_NO_CONTENT
         assert not ProductReview.objects.filter(review='отзыв 1')

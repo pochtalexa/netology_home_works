@@ -60,7 +60,7 @@ class TestOrderViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
-        self.url = f"{reverse('orders-list')}1/"
+        self.url = reverse("orders-detail", args=[self.order.id])
         self.r = self.client.patch(self.url, data=self.order_payload)
         assert self.r.status_code == HTTP_200_OK
 
@@ -109,9 +109,9 @@ class TestOrderViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user1_token.key}')
-        self.url = f"{reverse('orders-list')}2/"
+        self.url = {reverse('orders-list')}
         self.r = self.client.get(self.url)
-        assert self.r.status_code == HTTP_403_FORBIDDEN
+        assert self.r.status_code == HTTP_200_OK
 
     @pytest.mark.django_db
     def test_order_retrieve_self(self):
@@ -127,7 +127,7 @@ class TestOrderViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user1_token.key}')
-        self.url = f"{reverse('orders-list')}1/"
+        self.url = reverse("orders-detail", args=[self.order1.id])
         self.r = self.client.get(self.url)
         assert self.r.status_code == HTTP_200_OK
 
@@ -160,7 +160,7 @@ class TestOrderViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user1_token.key}')
-        self.url = f'{reverse("orders-list")}2/'
+        self.url = reverse("orders-detail", args=[self.order2.id])
         self.r = self.client.delete(self.url)
         assert self.r.status_code == HTTP_403_FORBIDDEN
 
@@ -175,7 +175,7 @@ class TestOrderViewSet:
 
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user1_token.key}')
-        self.url = f'{reverse("orders-list")}1/'
+        self.url = reverse("orders-detail", args=[self.order1.id])
         self.r = self.client.delete(self.url)
         assert self.r.status_code == HTTP_204_NO_CONTENT
 

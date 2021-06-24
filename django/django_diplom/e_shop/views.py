@@ -62,17 +62,26 @@ class OrderViewSet(ModelViewSet):
     + и продуктам из позиций.
     + Менять статус заказа могут только админы.
     """
-    queryset = Order.objects.all()
+    # queryset = Order.objects.all()
     serializer_class = OrderSerializer
     filter_backends = [DjangoFilterBackend]
     filter_class = OrderFilter
 
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Order.objects.all()
+
+        return Order.objects.filter(id_user=user.id)
+
     def get_permissions(self):
         if self.action in ['create']:
             return [IsAuthenticated()]
-        elif self.action in ['list']:
-            return [IsAdminUser()]
-        elif self.action in ['retrieve', 'destroy', 'update', 'partial_update']:
+        elif self.action in ['list', 'retrieve']:
+            # return [IsAdminUser()]
+            return [AllowAny()]
+        elif self.action in ['destroy', 'update', 'partial_update']:
+            self.my_test = IsSelfReviewOrOrder()
             return [IsSelfReviewOrOrder()]
 
         return [DenyAny()]

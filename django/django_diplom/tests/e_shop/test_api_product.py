@@ -66,7 +66,7 @@ class TestProductsViewSet:
         self.admin_token = Token.objects.create(user=self.admin_user)
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.admin_token.key}')
-        self.url = f'{reverse("products-list")}1/'
+        self.url = reverse("products-detail", args=[self.products[0].id])
         self.r = self.client.patch(self.url, data=self.product_payload)
         assert self.r.status_code == HTTP_200_OK
 
@@ -89,7 +89,7 @@ class TestProductsViewSet:
         self.admin_token = Token.objects.create(user=self.admin_user)
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.admin_token.key}')
-        self.url = f'{reverse("products-list")}1/'
+        self.url = reverse("products-detail", args=[self.products[0].id])
         self.r = self.client.patch(self.url, data=self.product_payload)
         assert self.r.status_code == HTTP_200_OK
 
@@ -126,7 +126,8 @@ class TestProductsViewSet:
         ])
 
         self.client = APIClient()
-        self.url = f'{reverse("products-list")}2/'
+        self.url = reverse("products-detail", args=[self.products[1].id])
+
         self.r = self.client.get(self.url)
         assert self.r.status_code == HTTP_200_OK
 
@@ -161,7 +162,7 @@ class TestProductsViewSet:
         self.admin_token = Token.objects.create(user=self.admin_user)
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.admin_token.key}')
-        self.url = f'{reverse("products-list")}1/'
+        self.url = reverse("products-detail", args=[self.products[0].id])
         assert Product.objects.filter(title='Огурец')
 
         self.r = self.client.delete(self.url)

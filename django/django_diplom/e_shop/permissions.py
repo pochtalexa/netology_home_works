@@ -16,7 +16,12 @@ from rest_framework import permissions
 
 class IsSelfReviewOrOrder(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.user != obj.id_user:
+        if view.basename == 'product_reviews':
+            self.obj_user = obj.author
+        else:
+            self.obj_user = obj.id_user
+
+        if request.user != self.obj_user:
             if view.basename == 'product_reviews':
                 self.message = 'Нельзя удалять или редактировать отзыв другого пользователя'
             else:
@@ -25,6 +30,7 @@ class IsSelfReviewOrOrder(permissions.BasePermission):
             return False
 
         return True
+
 
 class DenyAny(permissions.BasePermission):
     def has_permission(self, request, view):
