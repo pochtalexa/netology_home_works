@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.core import validators
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -49,8 +50,8 @@ class OrderStatusChoices(models.TextChoices):
 
 
 class OrderPositions(models.Model):
-    id_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='ID товара')
-    id_order = models.ForeignKey('Order', on_delete=models.CASCADE, verbose_name='ID заказа')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='ID товара')
+    order = models.ForeignKey('Order', on_delete=models.CASCADE, verbose_name='ID заказа')
     quantity = models.IntegerField(verbose_name='количество единиц товара')
 
     class Meta:
@@ -58,11 +59,12 @@ class OrderPositions(models.Model):
         verbose_name_plural = 'Детализации заказов'
 
     def __str__(self):
-        return f'{self.id_order}'
+        return f'{self.order}'
 
 
 class Order(models.Model):
-    id_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='ID пользователя')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='ID пользователя')
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='ID пользователя')
     positions = models.ManyToManyField(Product, through=OrderPositions)
     status = models.TextField(
         choices=OrderStatusChoices.choices,

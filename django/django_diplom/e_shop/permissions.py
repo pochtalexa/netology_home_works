@@ -19,7 +19,7 @@ class IsSelfReviewOrOrder(permissions.BasePermission):
         if view.basename == 'product_reviews':
             self.obj_user = obj.author
         else:
-            self.obj_user = obj.id_user
+            self.obj_user = obj.user
 
         if request.user != self.obj_user:
             if view.basename == 'product_reviews':

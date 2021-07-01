@@ -4,6 +4,7 @@ from .models import Product, ProductReview, Order, OrderPositions
 
 class ProductFilter(filters.FilterSet):
     title = filters.CharFilter(field_name="title", lookup_expr='icontains')
+    price = filters.RangeFilter(field_name="price")
     description = filters.CharFilter(field_name="description", lookup_expr='icontains')
 
     class Meta:
@@ -13,7 +14,7 @@ class ProductFilter(filters.FilterSet):
 
 class ProductReviewFilter(filters.FilterSet):
     created = filters.DateFromToRangeFilter(field_name="created_at")
-    product = filters.CharFilter(field_name="product__title", lookup_expr='icontains')
+    product = filters.NumberFilter(field_name="product__id")
 
     class Meta:
         model = ProductReview

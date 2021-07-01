@@ -67,12 +67,18 @@ class OrderViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filter_class = OrderFilter
 
+    # def get_serializer_class(self):
+    #     if self.action in ['update', 'partial_update']:
+    #         return OrderUpdateSerializer
+    #     else:
+    #         return OrderSerializer
+
     def get_queryset(self):
         user = self.request.user
         if user.is_staff:
             return Order.objects.all()
 
-        return Order.objects.filter(id_user=user.id)
+        return Order.objects.filter(user=user.id)
 
     def get_permissions(self):
         if self.action in ['create']:
