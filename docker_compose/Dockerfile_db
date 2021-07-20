@@ -1,0 +1,16 @@
+FROM postgres
+
+# WORKDIR /code
+
+# COPY ./db_init.sh /run/
+
+COPY ./init-user-db.sh /docker-entrypoint-initdb.d/init-user-db.sh
+
+# RUN chmod 777 /run/db_init.sh
+# RUN /run/db_init.sh
+
+# EXPOSE 5555
+
+ENV POSTGRES_PASSWORD mysecretpassword
+
+# CMD ["python", "/code/app.py"]

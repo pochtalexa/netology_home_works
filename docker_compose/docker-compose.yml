@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  db_container:
+    image: my_psql
+  flask_container:
+    image: my_flask_db
+    restart: on-failure
+    ports:
+        - "5051:5051"
+    depends_on:
+      - db_container
